@@ -31,3 +31,13 @@ class MessagesView(ListAPIView):
 		roomId = self.kwargs['roomId']
 		return ChatMessage.objects.\
 			filter(chat__roomId=roomId).order_by('-timestamp')
+
+# from django.core.management.base import BaseCommand, CommandError
+# from datetime import datetime, timedelta
+
+# class Command(BaseCommand):
+#     help = 'Delete objects older than 10 days'
+
+#     def handle(self, *args, **options):
+#         ChatMessage.objects.filter(timestamp=datetime.now()-timedelta(days=10)).delete()
+#         self.stdout.write('Deleted objects older than 10 days')
